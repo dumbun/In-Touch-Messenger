@@ -38,7 +38,7 @@ class _NavBarState extends State<NavBar> {
                 onSuffixTap: () {
                   setState(() {});
                 },
-                onSubmitted: (Srting) {},
+                onSubmitted: (string) {},
               ),
             ],
           ),

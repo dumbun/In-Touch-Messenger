@@ -1,16 +1,12 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:intouch/Modules/home_messages.dart';
 import '../widgets/nav_bar.dart';
 import '../widgets/list_view.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage extends StatelessWidget {
+  HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
 //// temporary Data:-
   final List<HomeMessages> homeList = [
     HomeMessages(
