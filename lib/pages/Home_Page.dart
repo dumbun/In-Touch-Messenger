@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 40,
           ),
-          Chatbar(),
+          const Chatbar(),
           Column(
             children: homeList.map((e) {
               return Padding(
