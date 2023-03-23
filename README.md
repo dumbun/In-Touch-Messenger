@@ -12,7 +12,7 @@ A Flutter project.
 
 <img width="300" alt="Day 1 Work" src="https://user-images.githubusercontent.com/113350510/227312860-6f78dda0-453e-4297-9fe6-fd9c727f8a1e.png">
 
-for search bar I used the <a href="https://pub.dev/packages/anim_search_bar">anim_search_bar</a>
+for search bar I used the <a href="https://pub.dev/packages/anim_search_bar">anim_search_bar Package</a>
 
 https://user-images.githubusercontent.com/113350510/227312996-3540de3e-b34d-4c79-9835-b083a5420404.mov
 
