@@ -1,6 +1,6 @@
 # InTouch
 
-is Messaging , one-to-one conversation that runs on a mobile device or platform like IOS and ANDROID.
+is Messaging 💬, one-to-one conversation that runs on a mobile device or platform like IOS and ANDROID.
 
 A Flutter project.
 
