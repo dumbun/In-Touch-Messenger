@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intouch/Modules/home_messages.dart';
-import '../widgets/chat_bar.dart';
+import '../widgets/nav_bar.dart';
 import '../widgets/list_view.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+//// temporary Data:-
   final List<HomeMessages> homeList = [
     HomeMessages(
         name: "Naruto",
@@ -87,7 +88,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 40,
           ),
-          const Chatbar(),
+          const NavBar(),
           Column(
             children: homeList.map((e) {
               return Padding(

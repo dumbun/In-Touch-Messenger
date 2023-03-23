@@ -33,7 +33,7 @@ class ListMessagesView extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            width: 10.0,
+            width: 15.0,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

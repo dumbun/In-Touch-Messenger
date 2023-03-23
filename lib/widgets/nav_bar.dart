@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:anim_search_bar/anim_search_bar.dart';
 
-class Chatbar extends StatefulWidget {
-  const Chatbar({super.key});
+class NavBar extends StatefulWidget {
+  const NavBar({super.key});
 
   @override
-  State<Chatbar> createState() => _ChatbarState();
+  State<NavBar> createState() => _NavBarState();
 }
 
-class _ChatbarState extends State<Chatbar> {
+class _NavBarState extends State<NavBar> {
   var textController = TextEditingController();
 
   @override
@@ -28,7 +28,7 @@ class _ChatbarState extends State<Chatbar> {
                 onPressed: () {},
                 icon: const Icon(Icons.edit_document),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20.0,
               ),
               AnimSearchBar(
@@ -38,7 +38,7 @@ class _ChatbarState extends State<Chatbar> {
                 onSuffixTap: () {
                   setState(() {});
                 },
-                onSubmitted: (String) {},
+                onSubmitted: (Srting) {},
               ),
             ],
           ),
