@@ -22,8 +22,8 @@ class ListMessagesView extends StatelessWidget {
             width: 20,
           ),
           Container(
-            width: 50,
-            height: 50,
+            width: 60,
+            height: 60,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
             ),
