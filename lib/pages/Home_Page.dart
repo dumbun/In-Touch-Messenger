@@ -1,5 +1,4 @@
 // ignore: file_names
-import 'dart:ffi';
 
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +49,7 @@ class _HomePageState extends State<HomePage> {
         image: "assets/images/sasuke.png"),
   ];
 
-  final SearchText = TextEditingController();
+  final searchText = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -88,12 +87,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 AnimSearchBar(
                   width: 200.0,
-                  textController: SearchText,
+                  textController: searchText,
                   onSuffixTap: () {
                     setState(() {});
                   },
                   onSubmitted: (string) {
-                    debugPrint(SearchText.toString());
+                    debugPrint(searchText.toString());
                   },
                 ),
               ],
