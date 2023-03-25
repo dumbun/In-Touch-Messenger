@@ -14,8 +14,8 @@ class ListMessagesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: Row(
         children: [
           const SizedBox(
