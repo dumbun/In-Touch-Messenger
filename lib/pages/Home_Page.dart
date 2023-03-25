@@ -48,22 +48,6 @@ class _HomePageState extends State<HomePage> {
         name: "Sasuke",
         lastMassages: "how is leaf 🍃 ? ",
         image: "assets/images/sasuke.png"),
-    HomeMessages(
-        name: "Goku",
-        lastMassages: "Lets WorkOut ",
-        image: "assets/images/goku.png"),
-    HomeMessages(
-        name: "Naruto",
-        lastMassages: "dattebayo",
-        image: "assets/images/naruto.png"),
-    HomeMessages(
-        name: "Sasuke",
-        lastMassages: "how is leaf 🍃 ? ",
-        image: "assets/images/sasuke.png"),
-    HomeMessages(
-        name: "Goku",
-        lastMassages: "Lets WorkOut ",
-        image: "assets/images/goku.png"),
   ];
 
   final SearchText = TextEditingController();
@@ -78,12 +62,14 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Chats",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
+            const SingleChildScrollView(
+              child: Text(
+                "Chats",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Row(
@@ -101,7 +87,6 @@ class _HomePageState extends State<HomePage> {
                   width: 20.0,
                 ),
                 AnimSearchBar(
-                  rtl: true,
                   width: 200.0,
                   textController: SearchText,
                   onSuffixTap: () {
