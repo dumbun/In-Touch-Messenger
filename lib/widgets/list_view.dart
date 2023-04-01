@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ListMessagesView extends StatelessWidget {
   const ListMessagesView({
@@ -11,6 +12,10 @@ class ListMessagesView extends StatelessWidget {
   final String image;
   final String contactName;
   final String lastMassages;
+//// need to change when connected to backed ;
+  String recivedDate() {
+    return DateFormat('jm').format(DateTime.now());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +48,27 @@ class ListMessagesView extends StatelessWidget {
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
-              Text(
-                lastMassages,
-                style: const TextStyle(
-                    color: Colors.grey, fontWeight: FontWeight.bold),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 100,
+                    child: Text(
+                      lastMassages,
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '  ${recivedDate()}',
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

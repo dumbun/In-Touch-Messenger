@@ -23,6 +23,10 @@ Added a Screen when there is no Chat and added Some Tweeks to the widget Tree
 <img width="300" alt="Day 1 Work" src="https://user-images.githubusercontent.com/113350510/227707220-fcc30d1e-1702-4d68-b488-989e4048bbae.png">,
 <img width="300" alt="Day 1 Work" src="https://user-images.githubusercontent.com/113350510/227707226-3b003c1a-0b50-42f7-a505-836fbd00a6a9.png">
 
+## Day 2 - In Development (25/03/2003) HomePage :-
+
+Added a navbar with screen changeing Functionality and date and text overflow also
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

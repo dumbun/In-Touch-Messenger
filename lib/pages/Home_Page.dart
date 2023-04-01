@@ -3,7 +3,7 @@
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import '../Modules/home_messages.dart';
-import '../widgets/list_view.dart';
+import '../views/messages_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,43 +13,58 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  ///// NavBar
+  int _selectedindex = 0;
+  void _onItemtapped(int index) {
+    setState(() {
+      _selectedindex = index;
+    });
+  }
+
 //// temporary Data:-
-  final List<HomeMessages> _homeList = [
+  late final List<HomeMessages> _homeList = [
     HomeMessages(
-        name: "Naruto",
-        lastMassages: "dattebayo",
-        image: "assets/images/naruto.png"),
+      name: "Naruto",
+      lastMassages: "dattebayo",
+      image: "assets/images/naruto.png",
+    ),
     HomeMessages(
-        name: "Sasuke",
-        lastMassages: "how is leaf 🍃 ? ",
-        image: "assets/images/sasuke.png"),
+      name: "Sasuke",
+      lastMassages: "how is leaf 🍃 ? ",
+      image: "assets/images/sasuke.png",
+    ),
     HomeMessages(
-        name: "Goku",
-        lastMassages: "Lets WorkOut ",
-        image: "assets/images/goku.png"),
+      name: "Goku",
+      lastMassages: "Lets WorkOut ",
+      image: "assets/images/goku.png",
+    ),
     HomeMessages(
-        name: "Naruto",
-        lastMassages: "dattebayo",
-        image: "assets/images/naruto.png"),
+      name: "Naruto",
+      lastMassages: "dattebayo",
+      image: "assets/images/naruto.png",
+    ),
     HomeMessages(
-        name: "Sasuke",
-        lastMassages: "how is leaf 🍃 ? ",
-        image: "assets/images/sasuke.png"),
+      name: "Sasuke",
+      lastMassages: "how is leaf 🍃 ? ",
+      image: "assets/images/sasuke.png",
+    ),
     HomeMessages(
-        name: "Goku",
-        lastMassages: "Lets WorkOut ",
-        image: "assets/images/goku.png"),
-    HomeMessages(
-        name: "Naruto",
-        lastMassages: "dattebayo",
-        image: "assets/images/naruto.png"),
-    HomeMessages(
-        name: "Sasuke",
-        lastMassages: "how is leaf 🍃 ? ",
-        image: "assets/images/sasuke.png"),
+      name: "Goku",
+      lastMassages: "Lets WorkOut ",
+      image: "assets/images/goku.png",
+    ),
   ];
 
   final searchText = TextEditingController();
+
+  late Widget homeMessagesView = messagesView(_homeList);
+
+  late final List<Widget> _widgetOptions = <Widget>[
+    homeMessagesView,
+    const Text("Gpt"),
+    const Text("Camera"),
+    const Text("Setting"),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -104,55 +119,31 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 650.0,
-                child: _homeList.isEmpty
-                    ? Column(
-                        children: [
-                          const Text(
-                            "No Chats Found",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
-                              color: Colors.grey,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                            width: double.infinity,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(
-                                Icons.edit_document,
-                                color: Colors.grey,
-                              ),
-                              Text(
-                                "Click the Icon to Start Texting",
-                                style: TextStyle(color: Colors.grey),
-                              )
-                            ],
-                          )
-                        ],
-                      )
-                    : ListView.builder(
-                        itemBuilder: (context, index) {
-                          return Card(
-                            elevation: 0.0,
-                            child: ListMessagesView(
-                              image: _homeList[index].image,
-                              contactName: _homeList[index].name,
-                              lastMassages: _homeList[index].lastMassages,
-                            ),
-                          );
-                        },
-                        itemCount: _homeList.length,
-                      ),
-              ),
+              _widgetOptions[_selectedindex],
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.chat_bubble_outline_rounded), label: "chats"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_tree_outlined), label: "GPT"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.photo_camera_outlined), label: "camera"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings_suggest_outlined), label: "settings"),
+        ],
+        elevation: 25.0,
+        iconSize: 30.0,
+        selectedFontSize: 15.0,
+        unselectedItemColor: Colors.grey,
+        unselectedFontSize: 20,
+        currentIndex: _selectedindex,
+        onTap: _onItemtapped,
+        enableFeedback: true,
+        selectedItemColor: Colors.blueAccent,
       ),
     );
   }
