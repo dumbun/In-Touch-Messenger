@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "975370955809",
+    "project_id": "intouchvamshik",
+    "storage_bucket": "intouchvamshik.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975370955809:android:3ad8e5ba4205d4688c0760",
+        "android_client_info": {
+          "package_name": "com.example.intouch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975370955809-v668dp5vek01jg75pquna67229v7e9q1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJpkLo1gHMd92OTTzXv0FK7fekJBO2Kk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975370955809-v668dp5vek01jg75pquna67229v7e9q1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
