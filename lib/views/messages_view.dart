@@ -8,7 +8,7 @@ Widget messagesView(homeMessageslist) {
         ? Column(
             children: [
               const Text(
-                "No Chats Found",
+                "No Chats Found 😢",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20.0,
