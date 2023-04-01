@@ -25,7 +25,7 @@ Added a Screen when there is no Chat and added Some Tweeks to the widget Tree
 
 ## Day 2 - In Development (25/03/2003) HomePage :-
 
-Added a navbar with screen changeing Functionality and date and text overflow also
+Added a navbar with screen changeing Functionality and date and text overflow also. and some changes in lib files.
 
 ## Getting Started
 
