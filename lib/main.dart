@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intouch/views/gpt_view.dart';
 import './pages/home_page.dart';
 
 void main(List<String> args) {
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: ChatPage(),
     );
   }
 }

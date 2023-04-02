@@ -53,9 +53,99 @@ class _HomePageState extends State<HomePage> {
       lastMassages: "Lets WorkOut ",
       image: "assets/images/goku.png",
     ),
+    HomeMessages(
+      name: "Naruto",
+      lastMassages: "dattebayo",
+      image: "assets/images/naruto.png",
+    ),
+    HomeMessages(
+      name: "Sasuke",
+      lastMassages: "how is leaf 🍃 ? ",
+      image: "assets/images/sasuke.png",
+    ),
+    HomeMessages(
+      name: "Goku",
+      lastMassages: "Lets WorkOut ",
+      image: "assets/images/goku.png",
+    ),
+    HomeMessages(
+      name: "Naruto",
+      lastMassages: "dattebayo",
+      image: "assets/images/naruto.png",
+    ),
+    HomeMessages(
+      name: "Sasuke",
+      lastMassages: "how is leaf 🍃 ? ",
+      image: "assets/images/sasuke.png",
+    ),
+    HomeMessages(
+      name: "Goku",
+      lastMassages: "Lets WorkOut ",
+      image: "assets/images/goku.png",
+    ),
+    HomeMessages(
+      name: "Naruto",
+      lastMassages: "dattebayo",
+      image: "assets/images/naruto.png",
+    ),
+    HomeMessages(
+      name: "Sasuke",
+      lastMassages: "how is leaf 🍃 ? ",
+      image: "assets/images/sasuke.png",
+    ),
+    HomeMessages(
+      name: "Goku",
+      lastMassages: "Lets WorkOut ",
+      image: "assets/images/goku.png",
+    ),
+    HomeMessages(
+      name: "Naruto",
+      lastMassages: "dattebayo",
+      image: "assets/images/naruto.png",
+    ),
+    HomeMessages(
+      name: "Sasuke",
+      lastMassages: "how is leaf 🍃 ? ",
+      image: "assets/images/sasuke.png",
+    ),
+    HomeMessages(
+      name: "Goku",
+      lastMassages: "Lets WorkOut ",
+      image: "assets/images/goku.png",
+    ),
+    HomeMessages(
+      name: "Naruto",
+      lastMassages: "dattebayo",
+      image: "assets/images/naruto.png",
+    ),
+    HomeMessages(
+      name: "Sasuke",
+      lastMassages: "how is leaf 🍃 ? ",
+      image: "assets/images/sasuke.png",
+    ),
+    HomeMessages(
+      name: "Goku",
+      lastMassages: "Lets WorkOut ",
+      image: "assets/images/goku.png",
+    ),
+    HomeMessages(
+      name: "Naruto",
+      lastMassages: "dattebayo",
+      image: "assets/images/naruto.png",
+    ),
+    HomeMessages(
+      name: "Sasuke",
+      lastMassages: "how is leaf 🍃 ? ",
+      image: "assets/images/sasuke.png",
+    ),
+    HomeMessages(
+      name: "Goku",
+      lastMassages: "Lets WorkOut ",
+      image: "assets/images/goku.png",
+    ),
   ];
 
-  final searchText = TextEditingController();
+  final TextEditingController searchText = TextEditingController();
 
   late Widget homeMessagesView = messagesView(_homeList);
 
@@ -76,21 +166,19 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SingleChildScrollView(
-              child: Text(
-                "Chats",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
+            const Text(
+              "Chats",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
             Row(
               children: [
                 IconButton(
                   iconSize: 25.0,
-                  hoverColor: Colors.green,
+                  //todo add a view for starting new text
                   onPressed: () {},
                   icon: const Icon(
                     Icons.edit_document,
@@ -103,11 +191,10 @@ class _HomePageState extends State<HomePage> {
                 AnimSearchBar(
                   width: 200.0,
                   textController: searchText,
-                  onSuffixTap: () {
-                    setState(() {});
-                  },
+                  onSuffixTap: () {},
                   onSubmitted: (string) {
-                    debugPrint(searchText.toString());
+                    //todo add a search view
+                    debugPrint(searchText.text);
                   },
                 ),
               ],
@@ -115,25 +202,21 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              _widgetOptions[_selectedindex],
-            ],
-          ),
-        ),
+      body: Column(
+        children: [
+          _widgetOptions[_selectedindex],
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble_outline_rounded), label: "chats"),
+              icon: Icon(Icons.chat_bubble_rounded), label: "chats"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_tree_outlined), label: "GPT"),
+              icon: Icon(Icons.account_tree_rounded), label: "GPT"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.photo_camera_outlined), label: "camera"),
+              icon: Icon(Icons.photo_camera_rounded), label: "camera"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings_suggest_outlined), label: "settings"),
+              icon: Icon(Icons.settings_suggest_rounded), label: "settings"),
         ],
         elevation: 25.0,
         iconSize: 30.0,
