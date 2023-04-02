@@ -2,6 +2,7 @@
 
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:intouch/views/gpt_view.dart';
 import '../Modules/home_messages.dart';
 import '../views/messages_view.dart';
 
@@ -151,7 +152,7 @@ class _HomePageState extends State<HomePage> {
 
   late final List<Widget> _widgetOptions = <Widget>[
     homeMessagesView,
-    const Text("Gpt"),
+    const Text("gpt"),
     const Text("Camera"),
     const Text("Setting"),
   ];
