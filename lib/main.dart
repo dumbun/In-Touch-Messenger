@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intouch/pages/main_page.dart';
+import 'package:intouch/pages/Home_Page.dart';
+import 'package:intouch/pages/email_verfication_page.dart';
+import 'package:intouch/pages/login_page.dart';
+import 'package:intouch/pages/register_page.dart';
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,11 +23,18 @@ class MyApp extends StatelessWidget {
     ]);
 
     return MaterialApp(
+      routes: {
+        "/login/": (context) => const LoginPage(),
+        "/register/": (context) => RegisterPage(),
+        "/home/": (context) => const HomePage(),
+        "/verifyEmail/": (context) => const EmailVerfication(),
+      },
       theme: ThemeData(
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MainPage(),
+      home: const LoginPage(),
+      // const MainPage(),
     );
   }
 }

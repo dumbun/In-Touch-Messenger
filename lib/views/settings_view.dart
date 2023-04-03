@@ -1,11 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 Widget setings(context) {
-  final user = FirebaseAuth.instance.currentUser;
-  final email = user?.email;
-
   return SingleChildScrollView(
     child: Column(
       children: [
@@ -32,18 +28,10 @@ Widget setings(context) {
               const SizedBox(
                 height: 20.0,
               ),
-              Flexible(
-                child: Text(
-                  email!,
-                  style: GoogleFonts.exo2(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              )
             ],
           ),
         ),
+
         const SizedBox(
           height: 20.0,
         ),
@@ -86,9 +74,13 @@ Widget setings(context) {
                             style: TextStyle(fontSize: 20.0),
                           )),
                       TextButton(
-                          onPressed: () {
-                            FirebaseAuth.instance.signOut();
-                            return Navigator.pop(context, 'Logout');
+                          onPressed: () async {
+                            await FirebaseAuth.instance.signOut();
+                            Navigator.pop(context, 'Logout');
+                            if (FirebaseAuth.instance.currentUser == null) {
+                              Navigator.of(context).pushNamedAndRemoveUntil(
+                                  "/login/", (route) => false);
+                            }
                           },
                           child: const Text(
                             "Logout",
