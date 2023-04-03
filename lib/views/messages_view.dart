@@ -32,20 +32,24 @@ Widget messagesView(homeMessageslist) {
             )
           ],
         )
-      : Flexible(
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return Card(
-                elevation: 0.0,
-                child: ListMessagesView(
-                  image: homeMessageslist[index].image,
-                  contactName: homeMessageslist[index].name,
-                  lastMassages: homeMessageslist[index].lastMassages,
-                ),
-              );
-            },
-            itemCount: homeMessageslist.length,
-            addAutomaticKeepAlives: false,
-          ),
+      : Column(
+          children: [
+            Flexible(
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 0.0,
+                    child: ListMessagesView(
+                      image: homeMessageslist[index].image,
+                      contactName: homeMessageslist[index].name,
+                      lastMassages: homeMessageslist[index].lastMassages,
+                    ),
+                  );
+                },
+                itemCount: homeMessageslist.length,
+                addAutomaticKeepAlives: false,
+              ),
+            ),
+          ],
         );
 }

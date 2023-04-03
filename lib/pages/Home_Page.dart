@@ -2,7 +2,7 @@
 
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:intouch/views/gpt_view.dart';
+import 'package:intouch/views/settings_view.dart';
 import '../Modules/home_messages.dart';
 import '../views/messages_view.dart';
 
@@ -149,13 +149,15 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController searchText = TextEditingController();
 
   late Widget homeMessagesView = messagesView(_homeList);
+  late final Widget _settings = setings(context);
 
   late final List<Widget> _widgetOptions = <Widget>[
     homeMessagesView,
     const Text("gpt"),
     const Text("Camera"),
-    const Text("Setting"),
+    _settings,
   ];
+  late final List _appBarTitles = ["Chats", "Gpt", "Camera", "Settings"];
 
   @override
   Widget build(BuildContext context) {
@@ -167,9 +169,9 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Chats",
-              style: TextStyle(
+            Text(
+              _appBarTitles[_selectedindex],
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
@@ -203,11 +205,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          _widgetOptions[_selectedindex],
-        ],
-      ),
+      body: _widgetOptions[_selectedindex],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
