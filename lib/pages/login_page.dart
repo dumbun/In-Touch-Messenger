@@ -15,10 +15,14 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
   //// login function
   Future login() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text,
-      password: _passwordController.text,
-    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.toString() == "wrong-password") {}
+    }
   }
 
   //// dispose
