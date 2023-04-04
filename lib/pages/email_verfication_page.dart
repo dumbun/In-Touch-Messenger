@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intouch/widgets/alert_dilog.dart';
@@ -61,14 +60,17 @@ class EmailVerfication extends StatelessWidget {
                     child: const Text("Resend mail !")),
               ],
             ),
-            //! logout
+            //! logout neesd to remove on final build
             ElevatedButton(
-                onPressed: () async {
-                  await FirebaseAuth.instance.signOut();
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil("/login/", (route) => true);
-                },
-                child: const Text("Logout"))
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil("/login/", (route) => true);
+              },
+              child: const Text(
+                "Logout",
+              ),
+            )
           ],
         ),
       ),

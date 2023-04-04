@@ -24,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
         password: _passwordController.text,
       );
       FirebaseAuth.instance.currentUser?.reload();
+
       if (FirebaseAuth.instance.currentUser?.emailVerified ?? false == true) {
         Navigator.of(context)
             .pushNamedAndRemoveUntil('/home/', (route) => false);
