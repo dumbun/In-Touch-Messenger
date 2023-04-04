@@ -4,10 +4,13 @@ import 'package:intouch/widgets/alert_dilog.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
+
   //! controlers
+
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final TextEditingController _verifiedPassword = TextEditingController();
+
   //! register logic
 
   void register(context) async {
@@ -120,7 +123,7 @@ class RegisterPage extends StatelessWidget {
                 height: 10,
               ),
 
-              //// Verigied Password
+              //// Verified Password TextField
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -152,7 +155,7 @@ class RegisterPage extends StatelessWidget {
                 height: 25,
               ),
 
-              //// login routE
+              //// login route
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
