@@ -34,9 +34,10 @@ Changes :- 1. Added login pages. 2. Added register pages. 3. Firebage Email Auth
 
 ## Day 5 : In Development (04/04/2023) Added more security & reliable email verification by send a verification mail to a user :-
 
-it helps to prevent users to register with others email and app miss use .
+it helps to prevent users to register with others email and app misuse .
 
-https://user-images.githubusercontent.com/113350510/229708721-b4857571-17ae-4e25-aa00-6319e88685f8.mp4
+https://user-images.githubusercontent.com/113350510/235297331-2d0205ce-de7c-4623-ab5f-943a069cbd97.webm
+
 
 ## Getting Started
 
