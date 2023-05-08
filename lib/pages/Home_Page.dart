@@ -1,9 +1,5 @@
-// ignore: file_names
-
 import 'package:anim_search_bar/anim_search_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:intouch/pages/email_verfication_page.dart';
 import 'package:intouch/views/settings_view.dart';
 import '../Modules/home_messages.dart';
 import '../views/messages_view.dart';

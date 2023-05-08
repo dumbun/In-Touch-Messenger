@@ -60,12 +60,12 @@ class EmailVerfication extends StatelessWidget {
                     child: const Text("Resend mail !")),
               ],
             ),
-            //! logout neesd to remove on final build
+            //! logout needs to remove on final build
             ElevatedButton(
               onPressed: () async {
-                await FirebaseAuth.instance.signOut();
                 Navigator.of(context)
                     .pushNamedAndRemoveUntil("/login/", (route) => true);
+                await FirebaseAuth.instance.signOut();
               },
               child: const Text(
                 "Logout",

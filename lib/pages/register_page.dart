@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intouch/widgets/alert_dilog.dart';
+import 'package:intouch/widgets/register_textfileds.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
@@ -43,23 +44,30 @@ class RegisterPage extends StatelessWidget {
               content: "Email Already Exits");
         }
         // invalid-email
-        if (e.code == " invalid-email") {
+        else if (e.code == " invalid-email" ||
+            e.code == "The email address is badly formatted") {
           return GetAlertDialog().singleActionDialog(
               context: context, title: "Email-Error", content: "Invalid Email");
         }
         // weak-password
-        if (e.code == "weak-password") {
+        else if (e.code == "weak-password") {
           return GetAlertDialog().singleActionDialog(
               context: context,
               title: "Password-Error",
               content: "Week Password Choose a Strong Password");
+        } else {
+          return GetAlertDialog().singleActionDialog(
+            context: context,
+            title: "Error",
+            content: e.code.toString(),
+          );
         }
       }
     } else if (password != verfiedPassword) {
       GetAlertDialog().singleActionDialog(
           context: context,
           title: "Password not same ",
-          content: "Please enter the same password in both filds ");
+          content: "Please enter the same password in both fields ");
     }
   }
 
@@ -88,56 +96,36 @@ class RegisterPage extends StatelessWidget {
               ),
 
               //// Email input field
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: TextField(
-                  autocorrect: false,
-                  controller: _email,
-                  style: const TextStyle(fontSize: 25),
-                  decoration: const InputDecoration(
-                      label: Text(
-                    "Enter your Email",
-                  )),
-                  keyboardType: TextInputType.emailAddress,
-                ),
+              RegisterTextfileds(
+                inputController: _email,
+                label: "Enter your Email",
+                keybordType: TextInputType.emailAddress,
+                obscureText: false,
               ),
               const SizedBox(
                 height: 10,
               ),
 
               //// Password input field
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: TextField(
-                  autocorrect: false,
-                  controller: _password,
-                  style: const TextStyle(fontSize: 25),
-                  decoration:
-                      const InputDecoration(label: Text("Enter your Password")),
-                  obscureText: true,
-                ),
+              RegisterTextfileds(
+                inputController: _password,
+                label: "Enter your Password",
+                keybordType: TextInputType.visiblePassword,
+                obscureText: true,
               ),
               const SizedBox(
                 height: 10,
               ),
-
               //// Verified Password TextField
 
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: TextField(
-                  autocorrect: false,
-                  controller: _verifiedPassword,
-                  style: const TextStyle(fontSize: 25),
-                  decoration:
-                      const InputDecoration(label: Text("Verify the password")),
-                  obscureText: true,
-                ),
+              RegisterTextfileds(
+                inputController: _verifiedPassword,
+                label: "Enter your Password",
+                keybordType: TextInputType.visiblePassword,
+                obscureText: true,
               ),
               const SizedBox(
-                height: 25,
+                height: 10,
               ),
 
               //// register Button
