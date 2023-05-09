@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:intouch/widgets/settings_buttons.dart';
 
 Widget setings(context) {
+  Future logoutPop(context) async {
+    Navigator.pop(context, 'Logout');
+    await FirebaseAuth.instance.signOut();
+  }
+
   return SingleChildScrollView(
     child: Column(
       children: [
@@ -94,13 +99,10 @@ Widget setings(context) {
                         style: TextStyle(fontSize: 20.0),
                       )),
                   TextButton(
-                    onPressed: () async {
-                      Navigator.pop(context, 'Logout');
-                      await FirebaseAuth.instance.signOut();
-                      if (FirebaseAuth.instance.currentUser == null) {
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            "/login/", (route) => false);
-                      }
+                    onPressed: () {
+                      logoutPop(context);
+                      Navigator.of(context)
+                          .pushNamedAndRemoveUntil("/login/", (route) => false);
                     },
                     child: const Text(
                       "Logout",

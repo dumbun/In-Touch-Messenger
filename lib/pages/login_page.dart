@@ -17,21 +17,20 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
 
   //// login function
-  Future login() async {
+  Future login(context) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text,
         password: _passwordController.text,
       );
       FirebaseAuth.instance.currentUser?.reload();
-
+      if (FirebaseAuth.instance.currentUser?.emailVerified ?? false == false) {
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil("/verifyEmail/", (route) => true);
+      }
       if (FirebaseAuth.instance.currentUser?.emailVerified ?? false == true) {
         Navigator.of(context)
             .pushNamedAndRemoveUntil('/home/', (route) => false);
-      } else if (FirebaseAuth.instance.currentUser?.emailVerified ??
-          false == false) {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil('/verifyEmail/', (route) => true);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == "wrong-password") {
@@ -137,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                           iconSize: MaterialStatePropertyAll(40),
                         ),
                         onPressed: () {
-                          login();
+                          login(context);
                           // next();
                         },
                         icon: const Icon(Icons.login_rounded),

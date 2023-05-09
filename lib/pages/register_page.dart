@@ -71,11 +71,6 @@ class RegisterPage extends StatelessWidget {
     }
   }
 
-  void dispose() {
-    _email.dispose();
-    _password.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
