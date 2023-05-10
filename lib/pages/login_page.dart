@@ -4,65 +4,53 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intouch/pages/Home_Page.dart';
 import 'package:intouch/widgets/alert_dilog.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
+  Widget build(BuildContext context) {
+//// Text Controlers
 
-class _LoginPageState extends State<LoginPage> {
-  //// Text Controlers
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
 
-  //// login function
-  Future login(context) async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-      FirebaseAuth.instance.currentUser?.reload();
-      if (FirebaseAuth.instance.currentUser?.emailVerified ?? false == false) {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil("/verifyEmail/", (route) => true);
-      }
-      if (FirebaseAuth.instance.currentUser?.emailVerified ?? false == true) {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil('/home/', (route) => false);
-      }
-    } on FirebaseAuthException catch (e) {
-      if (e.code == "wrong-password") {
-        GetAlertDialog().singleActionDialog(
-          context: context,
-          title: "Error",
-          content: "Wrong Password",
+    //// login function
+    Future login(context) async {
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
         );
-      } else if (e.code == "invalid-email") {
-        GetAlertDialog().registerDoubleActionDialog(
-          context: context,
-          title: "Error",
-          content: "Email Not Found! Please Register.",
-        );
-      } else {
-        GetAlertDialog().singleActionDialog(
-            context: context, title: "Error", content: e.code.toString());
+        FirebaseAuth.instance.currentUser?.reload();
+        if (FirebaseAuth.instance.currentUser?.emailVerified ??
+            false == false) {
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil("/verifyEmail/", (route) => true);
+        }
+        if (FirebaseAuth.instance.currentUser?.emailVerified ?? false == true) {
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil('/home/', (route) => false);
+        }
+      } on FirebaseAuthException catch (e) {
+        if (e.code == "wrong-password") {
+          GetAlertDialog().singleActionDialog(
+            context: context,
+            title: "Error",
+            content: "Wrong Password",
+          );
+        } else if (e.code == "invalid-email") {
+          GetAlertDialog().registerDoubleActionDialog(
+            context: context,
+            title: "Error",
+            content: "Email Not Found! Please Register.",
+          );
+        } else {
+          GetAlertDialog().singleActionDialog(
+              context: context, title: "Error", content: e.code.toString());
+        }
       }
     }
-  }
 
-  //// dispose
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return FirebaseAuth.instance.currentUser?.emailVerified ?? false
         ? const HomePage()
         : Scaffold(
@@ -109,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: const InputDecoration(
                             labelText: "Email",
                           ),
-                          controller: _emailController,
+                          controller: emailController,
                         ),
                       ),
 
@@ -118,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25.0),
                         child: TextField(
-                          controller: _passwordController,
+                          controller: passwordController,
                           style: const TextStyle(fontSize: 20.0),
                           obscureText: true,
                           decoration: const InputDecoration(

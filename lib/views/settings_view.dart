@@ -111,7 +111,7 @@ Widget setings(context) {
                         fontSize: 20.0,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             );
