@@ -1,8 +1,8 @@
-import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:intouch/views/settings_view.dart';
 import '../Modules/home_messages.dart';
 import '../views/messages_view.dart';
+import 'package:anim_search_bar/anim_search_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -206,14 +206,10 @@ class _HomePageState extends State<HomePage> {
       body: _widgetOptions[_selectedindex],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble_rounded), label: "chats"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_tree_rounded), label: "GPT"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.photo_camera_rounded), label: "camera"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings_suggest_rounded), label: "settings"),
+          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble_rounded), label: "chats"),
+          BottomNavigationBarItem(icon: Icon(Icons.account_tree_rounded), label: "GPT"),
+          BottomNavigationBarItem(icon: Icon(Icons.photo_camera_rounded), label: "camera"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings_suggest_rounded), label: "settings"),
         ],
         elevation: 25.0,
         iconSize: 30.0,

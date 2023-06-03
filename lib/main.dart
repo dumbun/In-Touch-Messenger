@@ -1,14 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intouch/pages/Home_Page.dart';
+import 'package:intouch/firebase_options.dart';
+import 'package:intouch/pages/home_Page.dart';
 import 'package:intouch/pages/email_verfication_page.dart';
 import 'package:intouch/pages/login_page.dart';
 import 'package:intouch/pages/register_page.dart';
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

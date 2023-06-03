@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intouch/pages/Home_Page.dart';
+import 'package:intouch/pages/home_Page.dart';
 import 'package:intouch/widgets/alert_dilog.dart';
 
 class LoginPage extends StatelessWidget {
@@ -9,7 +9,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//// Text Controlers
+    //// Text Controlers
 
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
@@ -22,14 +22,11 @@ class LoginPage extends StatelessWidget {
           password: passwordController.text,
         );
         FirebaseAuth.instance.currentUser?.reload();
-        if (FirebaseAuth.instance.currentUser?.emailVerified ??
-            false == false) {
-          Navigator.of(context)
-              .pushNamedAndRemoveUntil("/verifyEmail/", (route) => true);
+        if (FirebaseAuth.instance.currentUser?.emailVerified ?? false == false) {
+          Navigator.of(context).pushNamedAndRemoveUntil("/verifyEmail/", (route) => true);
         }
         if (FirebaseAuth.instance.currentUser?.emailVerified ?? false == true) {
-          Navigator.of(context)
-              .pushNamedAndRemoveUntil('/home/', (route) => false);
+          Navigator.of(context).pushNamedAndRemoveUntil('/home/', (route) => false);
         }
       } on FirebaseAuthException catch (e) {
         if (e.code == "wrong-password") {
@@ -45,8 +42,7 @@ class LoginPage extends StatelessWidget {
             content: "Email Not Found! Please Register.",
           );
         } else {
-          GetAlertDialog().singleActionDialog(
-              context: context, title: "Error", content: e.code.toString());
+          GetAlertDialog().singleActionDialog(context: context, title: "Error", content: e.code.toString());
         }
       }
     }
@@ -146,9 +142,8 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: () => Navigator.of(context)
-                                .pushNamedAndRemoveUntil(
-                                    "/register/", (route) => false),
+                            onPressed: () =>
+                                Navigator.of(context).pushNamedAndRemoveUntil("/register/", (route) => false),
                             child: const Text(
                               "Register now",
                               style: TextStyle(fontWeight: FontWeight.bold),
